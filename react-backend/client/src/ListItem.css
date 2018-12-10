@@ -1,0 +1,17 @@
+.ListItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.title{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+    padding-bottom: 5px;
+}
