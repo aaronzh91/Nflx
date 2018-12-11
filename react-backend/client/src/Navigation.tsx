@@ -32,7 +32,7 @@ class Navi extends React.Component {
             <div className="Navi">
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Crying in bed</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Cuddling</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/bradd_pitt")}><a href="#">Brad Pitt</a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/brad_pitt")}><a href="#">Brad Pitt</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Spy Movies</a></div>
             </div>
         );
