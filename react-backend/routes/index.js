@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.sendFile(path.resolve('../client/build', 'index.html'));
 });
 
 // router.get("/crying_in_bed", function (req, res, next) {
@@ -58,7 +58,7 @@ router.get('/cuddling', function(req,res) {
 });
 
 router.get('/ben_affleck', function(req,res) {
-    var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID JOIN Actors C ON C.IMDB_ID = A.IMDB_ID WHERE C.Actor = \'Ben Affleck\'; 
+    var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID JOIN Actors C ON C.IMDB_ID = A.IMDB_ID WHERE C.Actor = \'Ben Affleck\''; 
     connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {

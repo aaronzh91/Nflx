@@ -19,7 +19,7 @@ class ListItem extends React.Component {
     }
 
     public render() {
-		var imglink = "http://image.tmdb.org/t/p/w185/" + this.props.poster_path;
+		const imglink = "http://image.tmdb.org/t/p/w185/" + this.props.poster_path;
         return (
             <div className="ListItem">
                 <div className="title">{this.props.title}</div>
