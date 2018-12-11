@@ -12,12 +12,16 @@ class Navi extends React.Component {
     public httpLoader(url: string) {
         // TODO Parsing and processing data
         const loader = new XMLHttpRequest();
-        loader.open("POST", url, true);
+        loader.open("GET", url, true);
         loader.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         loader.send();
         const that = this.props.that;
+		console.log(loader.response);
+		
         if (that) {
-            that.refreshData(loader.response);
+            
+			that.refreshData(loader.response);
+			
             // that.refreshData([{
                 // link: "https://www.qq.com",
                 // src: "https://img5.duitang.com/uploads/item/201601/08/20160108212022_YPkGR.jpeg",

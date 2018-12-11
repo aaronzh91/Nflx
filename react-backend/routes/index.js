@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile(path.resolve('../client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 // router.get("/crying_in_bed", function (req, res, next) {
@@ -97,35 +97,38 @@ router.get('/horror_night', function (req, res) {
     });
 });
 
-//router.get('/crying_in_bed', function (req, res) {
-//    var query = '';
-//    connection.query(query, function (err, rows, fields) {
-//        if (err) console.log(err);
-//        else {
-//            res.json(rows);
-//        }
-//    });
-//});
-
-//router.get('/crying_in_bed', function (req, res) {
-//    var query = '';
-//    connection.query(query, function (err, rows, fields) {
-//        if (err) console.log(err);
-//        else {
-//            res.json(rows);
-//        }
-//    });
-//});
-
-
 router.get('/brad_pitt', function(req,res) {
   var query = 'SELECT DISTINCT IMDB_ID, movie_imdb_link, title, poster_path, overview FROM IMDB NATURAL JOIN Actors NATURAL JOIN Kaggle WHERE Actor = \'Brad Pitt\' AND title_year >= 1990 ORDER BY imdb_score DESC'; 
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-        res.json(rows);
+		res.json({'blah': 'blah'});
+        // res.json(rows);
     }  
     });
 });
+
+//router.get('/crying_in_bed', function (req, res) {
+//    var query = '';
+//    connection.query(query, function (err, rows, fields) {
+//        if (err) console.log(err);
+//        else {
+//            res.json(rows);
+//        }
+//    });
+//});
+
+//router.get('/crying_in_bed', function (req, res) {
+//    var query = '';
+//    connection.query(query, function (err, rows, fields) {
+//        if (err) console.log(err);
+//        else {
+//            res.json(rows);
+//        }
+//    });
+//});
+
+
+
 
 module.exports = router;
