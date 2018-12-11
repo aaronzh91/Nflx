@@ -15,7 +15,7 @@ class ListArea extends React.Component {
 				{/* {this.state.data.map((item) =>
                     <ListItem src={item.src} link={item.link} title={item.title} key={item.title} />
 				)} */}
-                {this.props.data.map((item) =>
+                {this.props.data!.map((item) =>
                     <ListItem IMDB_ID={item.IMDB_ID} movie_imdb_link={item.movie_imdb_link} title={item.title} poster_path={item.poster_path} overview={item.overview} key={item.IMDB_ID} />
                 )}
             </div>
