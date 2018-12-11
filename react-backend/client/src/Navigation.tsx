@@ -11,18 +11,18 @@ class Navi extends React.Component {
 
     public httpLoader(url: string) {
         // TODO Parsing and processing data
-        // const loader = new XMLHttpRequest();
-        // loader.open("POST", url, true);
-        // loader.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        // loader.send();
+        const loader = new XMLHttpRequest();
+        loader.open("POST", url, true);
+        loader.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        loader.send();
         const that = this.props.that;
         if (that) {
-            // that.refreshData(loader.response);
-            that.refreshData([{
-                link: "https://www.qq.com",
-                src: "https://img5.duitang.com/uploads/item/201601/08/20160108212022_YPkGR.jpeg",
-                title: "1",
-            }]);
+            that.refreshData(loader.response);
+            // that.refreshData([{
+                // link: "https://www.qq.com",
+                // src: "https://img5.duitang.com/uploads/item/201601/08/20160108212022_YPkGR.jpeg",
+                // title: "1",
+            // }]);
         }
     }
 
@@ -32,7 +32,7 @@ class Navi extends React.Component {
             <div className="Navi">
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Crying in bed</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Cuddling</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Ben Affleck</a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/bradd_pitt")}><a href="#">Brad Pitt</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "url")}><a href="#">Spy Movies</a></div>
             </div>
         );

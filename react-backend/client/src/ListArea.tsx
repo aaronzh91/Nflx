@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 
 class ListArea extends React.Component {
 
-    public props: { data: Array<{ link: string, src: string, title: string }>, page: boolean | null } = {
+    public props: { data: Array<{ IMDB_ID: string, movie_imdb_link: string, title: string, poster_path: string, overview: string }>, page: boolean | null } = {
         data: [],
         page: null
     };
@@ -16,7 +16,7 @@ class ListArea extends React.Component {
                     <ListItem src={item.src} link={item.link} title={item.title} key={item.title} />
                 )} */}
                 {this.props.data.map((item) =>
-                    <ListItem src={item.src} link={item.link} title={item.title} key={item.title} />
+                    <ListItem IMDB_ID={item.IMDB_ID} movie_imdb_link={item.movie_imdb_link} title={item.title} poster_path={item.poster_path} overview={item.overview} key={item.IMDB_ID} />
                 )}
             </div>
         );
