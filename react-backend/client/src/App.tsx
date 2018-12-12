@@ -42,6 +42,7 @@ import './App.css';
 import Footer from './Footer';
 import ListArea from './ListArea';
 import Navi from './Navigation';
+// import SearchBox from './SearchBox';
 
 
 class App extends React.Component {

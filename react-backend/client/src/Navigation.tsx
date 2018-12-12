@@ -64,11 +64,11 @@ class Navi extends React.Component <INaviProp>{
 		if (!this.props.page) {
 			return (
             <div className="Navi">
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/first_date")}><a href="#">First Date</a></div>
-				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/horror_night")}><a href="#">Horror Night</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/cuddling")}><a href="#">Cuddling</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/brad_pitt")}><a href="#">Brad Pitt</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/spy_movies")}><a href="#">Spies</a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/first_date")}><a href="#">First Date  </a></div>
+				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/horror_night")}><a href="#">Horror Night  </a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/cuddling")}><a href="#">Cuddling  </a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/brad_pitt")}><a href="#">Brad Pitt  </a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/spy_movies")}><a href="#">Spies  </a></div>
             </div>
 			);
 		}
@@ -76,10 +76,10 @@ class Navi extends React.Component <INaviProp>{
 			<div className="Navi">
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Action")}><a href="#">Action</a></div>
 				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Adventure")}><a href="#">Adventure</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Animation")}><a href="#">Animated</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Comedy")}><a href="#">Comedy</a></div>
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Crime")}><a href="#">Crime</a></div>
-				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Documentary")}><a href="#">Documentary</a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Animation")}><a href="#">Animated </a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Comedy")}><a href="#">Comedy </a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Crime")}><a href="#">Crime  </a></div>
+				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Documentary")}><a href="#">Documentary  </a></div>
 				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Drama")}><a href="#">Drama</a></div>
 				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Family")}><a href="#">Family</a></div>
 				<div className="NaviItem" onClick={this.httpLoader.bind(this, "/trad/Fantasy")}><a href="#">Fantasy</a></div>

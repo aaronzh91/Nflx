@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 
 // Snuggle tag queries
 router.get('/adventure', function(req,res) {
-  var query = 'select distinct IMDB_ID, movie_imdb_link, title, poster_path, overview from Kaggle natural join IMDB natural join Genre_Processed where Genres LIKE \'Adventure\' order by imdb_score desc limit 6'; 
+  var query = 'select distinct IMDB_ID, movie_imdb_link, title, poster_path, overview from Kaggle natural join IMDB natural join Genre_Processed where Genres LIKE \'Adventure\' order by imdb_score desc'; 
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -52,7 +52,7 @@ router.get('/adventure', function(req,res) {
 });
 
 router.get('/cuddling', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Romance\' ORDER BY B.imdb_score DESC LIMIT 6'; 
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Romance\' ORDER BY B.imdb_score DESC'; 
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -62,7 +62,7 @@ router.get('/cuddling', function(req,res) {
 });
 
 router.get('/ben_affleck', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Romance\' ORDER BY B.imdb_score DESC LIMIT 6'; 
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Romance\' ORDER BY B.imdb_score DESC'; 
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -72,7 +72,7 @@ router.get('/ben_affleck', function(req,res) {
 });
 
 router.get('/first_date', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Comedy\' ORDER BY B.imdb_score DESC LIMIT 6;';
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Comedy\' ORDER BY B.imdb_score DESC';
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -83,7 +83,7 @@ router.get('/first_date', function(req,res) {
 });
 
 router.get('/spy_movies', function(req,res) {
-  var query = 'select distinct g.imdb_id, b.movie_imdb_link, a.title, a.poster_path, a.overview from Kaggle a join IMDB b on a.imdb_id = b.imdb_id join Genre_Processed g on a.imdb_id = g.imdb_id where a.overview like \'%spy%\' order by b.imdb_score desc limit 6';
+  var query = 'select distinct g.imdb_id, b.movie_imdb_link, a.title, a.poster_path, a.overview from Kaggle a join IMDB b on a.imdb_id = b.imdb_id join Genre_Processed g on a.imdb_id = g.imdb_id where a.overview like \'%spy%\' order by b.imdb_score desc';
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -94,7 +94,7 @@ router.get('/spy_movies', function(req,res) {
 });
 
 router.get('/horror_night', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Horror\' ORDER BY B.imdb_score DESC LIMIT 6';;
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'Horror\' ORDER BY B.imdb_score DESC';;
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) console.log(err);
     else {
@@ -116,9 +116,12 @@ router.get('/brad_pitt', function(req,res) {
 
 //Traditional Queries
 router.get('/trad/:genre', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'' + genre + '\' ORDER BY B.imdb_score DESC';;
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'' + req.params.genre + '\' ORDER BY B.imdb_score';;
   db2.query(query, [1,5], (err, rows, cache) => {
-    if (err) console.log(err);
+    if (err) {
+		console.log(query);
+		console.log(err);
+	}
     else {
 
         res.json(rows);

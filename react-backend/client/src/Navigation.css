@@ -1,11 +1,13 @@
 .Navi {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding-top: 15px;
+	flex-wrap: wrap;
+	margin: 5px 15px;
+    justify-content: space-evenly;
 }
 
 .NaviItem {
     color: black;
     text-decoration: underline;
+	margin: 0 5px;
 }
