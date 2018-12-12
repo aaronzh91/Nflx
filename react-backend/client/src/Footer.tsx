@@ -20,7 +20,7 @@ class Footer extends React.Component {
             <div className="Footer" style={{ width: "80%", marginLeft: "10%" }}>
                 <div>Find movies by:</div>
                 <div onClick={this.changePages.bind(this, false)}><a href="#">Snuggle Tags</a></div>
-                <div onClick={this.changePages.bind(this, true)}><a href="#">Tradition Search</a></div>
+                <div onClick={this.changePages.bind(this, true)}><a href="#">Traditional Search</a></div>
             </div>
         );
     }

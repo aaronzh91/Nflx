@@ -12,6 +12,7 @@ class ListItem extends React.Component {
 
     public hover() {
         // TODO show plot overview
+		
     }
 
     public out() {
@@ -23,7 +24,7 @@ class ListItem extends React.Component {
         return (
             <div className="ListItem">
                 <div className="title">{this.props.title}</div>
-                <a href={this.props.movie_imdb_link}><img className="img" src={imglink} onMouseOver={this.hover} onMouseOut={this.out} /></a>
+                <a href={this.props.movie_imdb_link} target="_blank"><img className="img" src={imglink} onMouseOver={this.hover} onMouseOut={this.out} /></a>
             </div>
         );
     }
