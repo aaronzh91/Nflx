@@ -16,15 +16,15 @@ class App extends React.Component {
         // TODO Parsing and processing data
         const loader = new XMLHttpRequest();
         // loader.open("GET", "/spy_movies", true);
-		loader.open("GET", url, true);
+		loader.open("GET", url, false);
         loader.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        loader.send();
-		console.log(loader.response);
+        loader.send(null);
 		
-        if (loader.response) {
-			console.log(loader.response);
+        if (loader.status === 200) {
+			const d = loader.responseText;
+			this.setState({ data: d });
         }
-		// this.setState({ data: d });
+		
   }
 
   public changePages =(b: boolean) =>{

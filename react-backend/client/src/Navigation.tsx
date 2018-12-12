@@ -23,7 +23,7 @@ class Navi extends React.Component <INaviProp>{
         // TODO replace url here
         return (
             <div className="Navi">
-                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/crying_in_bed")}><a href="#">Crying in bed</a></div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/adventure")}><a href="#">I'm adventurous</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/cuddling")}><a href="#">Cuddling</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/brad_pitt")}><a href="#">Brad Pitt</a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/spy_movies")}><a href="#">Spy Movies</a></div>
