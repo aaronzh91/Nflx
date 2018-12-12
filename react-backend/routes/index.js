@@ -116,7 +116,7 @@ router.get('/brad_pitt', function(req,res) {
 
 //Traditional Queries
 router.get('/trad/:genre', function(req,res) {
-  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'' + req.params.genre + '\' ORDER BY B.imdb_score';;
+  var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE G.Genres = \'' + req.params.genre + '\' ORDER BY B.imdb_score';
   db2.query(query, [1,5], (err, rows, cache) => {
     if (err) {
 		console.log(query);
@@ -124,6 +124,23 @@ router.get('/trad/:genre', function(req,res) {
 	}
     else {
 
+        res.json(rows);
+    }  
+    });
+});
+
+//Search box
+router.post('/search/', function(req, res) {
+	var search = req.body.val;
+	var query = 'SELECT DISTINCT A.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID WHERE MATCH(A.overview) AGAINST (\'' + search + '\') ORDER BY B.imdb_score';
+	console.log(query);
+	db2.query(query, [1,5], (err, rows, cache) => {
+    if (err) {
+		console.log(query);
+		console.log(err);
+	}
+    else {
+		console.log(query);
         res.json(rows);
     }  
     });

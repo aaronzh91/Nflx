@@ -42,6 +42,7 @@ import './App.css';
 import Footer from './Footer';
 import ListArea from './ListArea';
 import Navi from './Navigation';
+import SearchBox from './SearchBox';
 // import SearchBox from './SearchBox';
 
 
@@ -51,22 +52,6 @@ class App extends React.Component {
     data: [],
     page: false
   }
-
-  // public refreshData(url: string) {
-        // // TODO Parsing and processing data
-        // const loader = new XMLHttpRequest();
-        // // loader.open("GET", "/spy_movies", true);
-		// loader.open("GET", url, false);
-        // loader.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        // loader.send();
-		// if (loader.status === 200) {
-			// console.log(loader.responseText);
-			// const d = loader.response;
-			// this.setState({ data: d });
-		// } else {
-			// console.log('error');
-		// }				
-  // }
   
   public refreshData(url: string) {
 	  fetch(url)
@@ -77,20 +62,40 @@ class App extends React.Component {
 			})
 		});
   }
+  
+  public refreshDataPost(content: string) {
+		const contentJson = {val: content};
+		console.log("Fetching: " + JSON.stringify(contentJson));
+		fetch('/search/', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(contentJson)
+		})
+			.then(res => res.json())
+			.then(json => {
+				this.setState({
+				data: json
+				})
+			});
+  }
 
   public changePages =(b: boolean) =>{
-    this.setState({ page: b });
+    this.setState({ data: [], page: b });
   }
+  
 
   public render() {
     // TODO To display different page, modify the content of Navi and ListArea based on the value of page
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">{this.state.page ? "Tradition" : "Snuggle"}</h1>
+          <h1 className="App-title">{this.state.page ? "Traditional" : "Snuggle"}</h1>
         </header>
         <div className="mood"><i>In the mood for...</i></div>
         <Navi that={this} page={this.state.page} />
+		<SearchBox that={this} />
         <ListArea data={this.state.data} page={this.state.page} />
         <Footer that={this} />
       </div>
