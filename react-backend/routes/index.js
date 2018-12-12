@@ -4,12 +4,21 @@ var path = require('path');
 
 // Connect string to MySQL
 var mysql = require('mysql');
-var connection = mysql.createConnection({
+const db = mysql.createConnection({
   host     : 'rds-mysql-cis550movie.cse71gfxjvmn.us-east-1.rds.amazonaws.com',
   user     : 'CIS550Movie',
   password : 'cis550movie',
   database : 'dbMovie'
 });
+
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+
+global.db = db;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -68,8 +77,10 @@ router.get('/ben_affleck', function(req,res) {
 });
 
 router.get('/spy_movies', function(req,res) {
-    var query = 'SELECT DISTINCT G.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID JOIN Genre_Processed G ON A.IMDB_ID = G.IMDB_ID WHERE A.overview LIKE \'%spy%\' ORDER BY B.imdb_score DESC LIMIT 6'; 
-    connection.query(query, function(err, rows, fields) {
+	
+    var query = 'select distinct g.imdb_id, b.movie_imdb_link, a.title, a.poster_path, a.overview from Kaggle a join IMDB b on a.imdb_id = b.imdb_id join Genre_Processed g on a.imdb_id = g.imdb_id where a.overview like \'%spy%\' order by b.imdb_score desc limit 6'; 
+    
+    db.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
         res.json(rows);

@@ -4,6 +4,7 @@ import Footer from './Footer';
 import ListArea from './ListArea';
 import Navi from './Navigation';
 
+
 class App extends React.Component {
 
   public state = {
@@ -11,11 +12,22 @@ class App extends React.Component {
     page: false
   }
 
-  public refreshData(d: any) {
-    this.setState({ data: d })
+  public refreshData(url: string) {
+        // TODO Parsing and processing data
+        const loader = new XMLHttpRequest();
+        // loader.open("GET", "/spy_movies", true);
+		loader.open("GET", url, true);
+        loader.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        loader.send();
+		console.log(loader.response);
+		
+        if (loader.response) {
+			console.log(loader.response);
+        }
+		// this.setState({ data: d });
   }
 
-  public changePages(b: boolean) {
+  public changePages =(b: boolean) =>{
     this.setState({ page: b });
   }
 
