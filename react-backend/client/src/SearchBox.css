@@ -1,13 +1,4 @@
-.Navi {
-    display: flex;
-    flex-direction: row;
-	flex-wrap: wrap;
-	margin: 5px 15px;
-	margin-bottom: 20px;
-    justify-content: center;
-}
-
-.NaviItem {
+.SearchBox {
     color: black;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	font-weight: bold;

@@ -69,7 +69,8 @@ class Navi extends React.Component <INaviProp>{
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/cuddling")}><a href="#">Cuddling  </a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/brad_pitt")}><a href="#">Brad Pitt  </a></div>
                 <div className="NaviItem" onClick={this.httpLoader.bind(this, "/spy_movies")}><a href="#">Spies  </a></div>
-            </div>
+                <div className="NaviItem" onClick={this.httpLoader.bind(this, "/top_directors")}><a href="#">Top Directors  </a></div>
+				</div>
 			);
 		}
 		else { return (

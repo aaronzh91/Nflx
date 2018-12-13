@@ -10,6 +10,8 @@
 	word-wrap: normal;
     padding-top: 10px;
     padding-bottom: 5px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-weight: bold;
 }
 
 .img {

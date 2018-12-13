@@ -91,7 +91,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">{this.state.page ? "Traditional" : "Snuggle"}</h1>
+          <h1 className="App-title"><a href="/">{this.state.page ? "Traditional" : "Snuggle"}</a></h1>
         </header>
         <div className="mood"><i>In the mood for...</i></div>
         <Navi that={this} page={this.state.page} />

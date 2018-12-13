@@ -36,6 +36,7 @@ class SearchBox extends React.Component <IAppProp, {value: string}> {
 
   public render() {
     return (
+	<div className="SearchBox">
       <form onSubmit={this.handleSubmit}>
         <label>
           Plot Search:
@@ -43,6 +44,7 @@ class SearchBox extends React.Component <IAppProp, {value: string}> {
         </label>
         <input type="submit" value="Search" />
       </form>
+	 </div>
     );
   }
 }
