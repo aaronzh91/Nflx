@@ -140,8 +140,8 @@ router.get('/trad/:genre', function(req,res) {
 });
 
 //Search box
-router.get('/search/', function(req, res) {
-	var query = 'SELECT DISTINCT A.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID WHERE MATCH(A.overview) AGAINST (\'' + search + '\') ORDER BY B.imdb_score';
+router.post('/search/', function(req, res) {
+	var query = 'SELECT DISTINCT A.IMDB_ID, B.movie_imdb_link, A.title, A.poster_path, A.overview FROM Kaggle A JOIN IMDB B ON A.IMDB_ID = B.IMDB_ID WHERE MATCH(A.overview) AGAINST (\'' + req.body.val + '\') ORDER BY B.imdb_score';
 	console.log(query);
 	db2.query(query, [1,5], (err, rows, cache) => {
     if (err) {
